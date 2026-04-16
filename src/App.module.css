@@ -1,0 +1,248 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header */
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0.15rem 0 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.refreshBtn,
+.configBtn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.85rem;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.refreshBtn:hover:not(:disabled),
+.configBtn:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+.refreshBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.configBtnAlert {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Config panel */
+.configPanel {
+  background: var(--surface-raised);
+  border-bottom: 1px solid var(--border);
+}
+
+.configInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+}
+
+.configTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+}
+
+.configNote {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+}
+
+.configNote a {
+  color: var(--accent);
+}
+
+.configRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.configField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1 1 220px;
+}
+
+.configField label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.configField input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  outline: none;
+}
+
+.configField input:focus {
+  border-color: var(--accent);
+}
+
+.configSave {
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.52rem 1.4rem;
+  transition: opacity 0.12s;
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
+.configSave:hover:not(:disabled) { opacity: 0.85; }
+.configSave:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Main */
+.main {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section {
+  width: 100%;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .grid2 { grid-template-columns: 1fr; }
+}
+
+/* States */
+.error {
+  background: hsl(0, 60%, 15%);
+  border: 1px solid hsl(0, 60%, 30%);
+  border-radius: 8px;
+  color: hsl(0, 80%, 75%);
+  padding: 0.85rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.loadingBar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+.empty {
+  text-align: center;
+  padding: 5rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.emptyHint {
+  margin-top: 0.75rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
